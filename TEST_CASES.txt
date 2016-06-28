@@ -1,0 +1,86 @@
+TEST CASES (used Firefox Plugin HTTPRequestor for Client Testing Purposes)
+
+1) Find person in database
+
+URL: GET  http://localhost:8080/PersonWebService/getPersonInfo?name=Brianna%20Strong
+EXPECTED RESULT: HTTP 200 WITH JSON OBJECT
+
+{"name": "Brianna Strong","age": 23,"height": 46,"likesIceCream": false}
+
+RESULT: PASSED
+
+2) Person not in database
+URL: GET http://localhost:8080/PersonWebService/getPersonInfo?name=Brianna%20Strongbow
+EXPECTED RESULT: HTTP 400
+RESULT: PASSED
+
+
+3) Add Person and then query database via URL to confirm creation
+URL : POST http://localhost:8080/PersonWebService/createPerson
+HTTP REQUEST BODY:
+
+{"name": "Kevin Weber","age": 36,"height": 62,"likesIceCream": true}
+
+EXPECTED RESULT: HTTP 200 with JSON OBJECT
+RESULT: PASSED
+
+URL: GET  http://localhost:8080/PersonWebService/getPersonInfo?name=Kevin%20Weber
+EXPECTED RESULT:HTTP 200 WITH JSON OBJECT
+
+{"name": "Kevin Weber","age": 36,"height": 62,"likesIceCream": true}
+RESULT: PASSED
+
+
+4) Remove person in the application and then query database via URL to confirm delete
+URL : DELETE http://localhost:8080/PersonWebService/deletePerson?name=Bob%20Severson
+
+HTTP RESPONSE:
+
+{"name": "Bob Severson","age": 45,"height": 60,"likesIceCream": true}
+
+EXPECTED RESULT: HTTP 200 with JSON OBJECT IN THE RESPONSE
+RESULT: PASSED
+
+URL: GET  http://localhost:8080/PersonWebService/getPersonInfo?name=Bob%20Severson
+EXPECTED RESULT:HTTP 400
+RESULT: PASSED
+
+
+5) Remove person not in the application
+URL : DELETE http://localhost:8080/PersonWebService/deletePerson?name=Wally%20Smithson
+
+EXPECTED RESULT: HTTP 400
+RESULT: PASSED
+
+
+6) Update person in the application and then query database via URL to confirm update
+URL: PUT http://localhost:8080/PersonWebService/updatePerson
+
+HTTP REQUEST/RESPONSE BODY:
+
+{"name": "Vince Kettle","age": 36,"height":50 ,"likesIceCream": true}
+
+EXPECTED RESULT: HTTP 200 WITH NEW JSON OBJECT
+RESULT: PASSED
+
+URL: GET http://localhost:8080/PersonWebService/getPersonInfo?name=Vince%20Kettle
+EXPECTED RESULT: HTTP 200 WITH NEW JSON OBJECT
+
+{"name": "Vince Kettle","age": 36,"height":50 ,"likesIceCream": true}
+
+RESULT: PASSED
+
+
+6) Update person NOT in the application
+
+URL: PUT http://localhost:8080/PersonWebService/updatePerson
+
+HTTP REQUEST:
+
+{"name": "Marvin Scott","age": 24,"height":66 ,"likesIceCream": true}
+
+EXPECTED RESULT: HTTP 400 
+RESULT: PASSED
+
+
+	 
