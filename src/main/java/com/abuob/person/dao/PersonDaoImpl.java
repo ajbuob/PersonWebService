@@ -30,7 +30,7 @@ public class PersonDaoImpl implements PersonDao {
             List<Person> people = jdbcTemplate.query("SELECT * FROM PERSON WHERE NAME = ?", new PersonMapper(), new Object[] {name});
 
             //Take the first entry in the array from the List
-            if(people != null && people.size() > 0) {
+            if(people != null && !people.isEmpty()) {
                 person = people.get(0);
             }
 
@@ -70,7 +70,7 @@ public class PersonDaoImpl implements PersonDao {
 
             List<Person> people = jdbcTemplate.query("SELECT * FROM PERSON WHERE NAME = ?", new PersonMapper(), new Object[] {name});
 
-            if(people != null && people.size() > 0) {
+            if(people != null && !people.isEmpty()) {
                 person = people.get(0);
 
                 int numRows = jdbcTemplate.update("DELETE FROM PERSON WHERE NAME = ?",new Object[] {name});
