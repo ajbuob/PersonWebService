@@ -11,16 +11,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-
-
-/**
- * Created by abuob on 6/26/16.
- */
 @Repository("PersonDao")
 public class PersonDaoImpl implements PersonDao {
 
+
+    private final JdbcTemplate jdbcTemplate;
+
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    public PersonDaoImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     public Person findPersonByName(String name) {
         Person person = null;

@@ -14,16 +14,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Created by abuob on 6/26/16.
- */
 @Controller
 @RequestMapping("PersonWebService")
 public class PersonController {
 
-    @Autowired
-    private PersonService personService;
 
+    private final PersonService personService;
+
+    @Autowired
+    public PersonController(PersonService personService) {
+        this.personService = personService;
+    }
 
     //Takes in a person information in the request and then returns
     //it to the user as confirmation of the creation.

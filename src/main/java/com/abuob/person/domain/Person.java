@@ -1,8 +1,5 @@
 package com.abuob.person.domain;
 
-/**
- * Created by abuob on 6/26/16.
- */
 public class Person {
 
     private String name;
