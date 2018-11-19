@@ -9,9 +9,9 @@
   <name>PersonWebService</name>
 
   <properties>
-    <spring.version>4.3.0.RELEASE</spring.version>
-    <jackson.version>2.7.5</jackson.version>
-    <h2db.version>1.4.192</h2db.version>
+    <spring.version>4.3.20.RELEASE</spring.version>
+    <jackson.version>2.9.7</jackson.version>
+    <h2db.version>1.4.197</h2db.version>
   </properties>
 
   <dependencies>
@@ -43,7 +43,7 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.4</version>
+      <version>3.8.1</version>
     </dependency>
 
     <dependency>
@@ -74,7 +74,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
+        <version>3.8.0</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
