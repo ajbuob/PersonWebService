@@ -23,7 +23,6 @@ public class PersonServiceImpl implements PersonService{
         return personDao.findPersonByName(name);
     }
 
-
     public Person updatePerson(Person person) {
         return personDao.updatePerson(person);
     }
